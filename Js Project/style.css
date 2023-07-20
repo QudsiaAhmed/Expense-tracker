@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(185, 181, 181);
+}
+
+.left-side {
+    background-color: rgb(76, 132, 184);
+    width: 27%;
+    height: 90vh;
+    float: left;
+    margin-top: 2.9rem;
+    margin-bottom: 2rem;
+    margin-left: 3rem;
+    position: relative;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.h1_of_left {
+    font-size: 2.9rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.p_of_left {
+    font-size: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+    .left-side {
+        width: 100%;
+        margin: 2.9rem 0;
+        padding: 0 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .left-side {
+        margin: 1rem 0;
+    }
+}
+
+.right-side {
+    background-color: #ffffff;
+    width: 70%;
+    height: 90vh;
+    float: left;
+    margin-top: 2.9rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    position: relative;
+    left: -1rem;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .h1_of_sign_In {
+    color: rgb(76, 132, 184);
+    font-size: 2.4rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .form-container {
+    text-align: center;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-group input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    max-width: 19rem;
+    width: 110%;
+    height: 2.8rem;
+    background-color: rgb(242,242,242);
+    outline: none;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    border: none;
+    background-color: rgb(76, 132, 184);
+    color: #fff;
+    cursor: pointer;
+    width: 10rem;
+    height: 2.5rem;
+    margin-top: 1rem;
+  }
+  
+  .p_of_right > a {
+    color: rgb(76, 132, 184);
+    margin-left: 0.2rem;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .right-side {
+      width: 100%;
+      margin: 2.9rem 0;
+      padding: 0 1rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .right-side {
+      margin: 1rem 0;
+    }
+  
+    .form-group input {
+      max-width: 100%;
+    }
+  }
+  @media screen and (max-width: 768px) {
+
+    .left-side,
+    .right-side {
+        width: 100%;
+        margin: 2rem 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .left-side,
+    .right-side {
+        margin: 1rem 0;
+    }
+}

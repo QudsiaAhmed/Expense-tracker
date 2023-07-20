@@ -1,0 +1,317 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.popup-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    max-width: 400px;
+    width: 90%;
+}
+
+.popup-container form {
+    margin-bottom: 20px;
+}
+
+.popup-container label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.popup-container input[type="text"],
+.popup-container input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.popup-container button[type="submit"],
+.popup-container .close-btn {
+    padding: 10px 20px;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.popup-container button {
+    margin-top: 1rem;
+}
+
+.popup-container .close-btn {
+    background: #ccc;
+    margin-left: 10px;
+}
+
+.popup-container .close-btn:hover,
+.popup-container button[type="submit"]:hover {
+    background: #007bff;
+}
+
+
+.transaction {
+    margin-top: 12rem;
+    margin-left: 6%;
+}
+
+
+.container {
+    position: relative;
+    height: 3rem;
+    width: 29%;
+    margin: 0 6%;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.income-expense-btns .income-btn,
+.income-expense-btns .expense-btn {
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1), 0px -2px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+.income-expense-btns {
+    position: absolute;
+    margin-left: 34rem;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+
+}
+
+.income-expense-btns .income-btn {
+    margin-right: 10px;
+    height: 3rem;
+    width: 50%;
+
+}
+
+.income-expense-btns .income-btn i {
+    margin-right: 5px;
+}
+
+.income-expense-btns .expense-btn {
+    margin-left: 10px;
+    height: 3rem;
+    width: 50%;
+
+}
+
+.income-btn:focus,
+.expense-btn:focus {
+    outline: 2px solid #007bff;
+}
+
+.input-field {
+    padding: 5px;
+    font-size: 14px;
+    border: none;
+    outline: none;
+}
+
+.dropdown {
+    position: relative;
+    margin-left: 10rem;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.selected {
+    outline: 2px solid blue;
+    /* Customize the outline style */
+}
+
+#categoriesList li.selected {
+    background-color: #e10707;
+    border-radius: 5px;
+}
+
+.category-container {
+    display: flex;
+    align-items: center;
+    margin-left: 6%;
+}
+
+#categoriesList {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+#categoriesList li {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+
+.Select_category {
+    margin-left: 6%;
+}
+
+#add-category-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 2rem;
+    width: 120px;
+
+}
+
+#add-category-btn i {
+    margin-right: 5px;
+}
+
+#add-category-btn:hover {
+    background-color: #0056b3;
+}
+
+#categoriesList li:hover {
+    background-color: #96c5f7;
+    height: 2rem;
+}
+
+.right-div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 80%;
+    background-color: rgb(248, 248, 248);
+    padding: 20px;
+    margin-top: 4rem;
+}
+
+.userIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(244, 242, 242);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 14rem;
+}
+
+.userIcon i {
+    color: rgb(213, 213, 213);
+}
+
+.What {
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+/* h2 {
+    margin-bottom: 20px;
+} */
+
+#account-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#account-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#account-table th,
+#account-table td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+#account-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+#account-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#create-account-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 2rem;
+    width: 120px;
+    margin-top: 1rem;
+}
+
+.delete-button {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: #5788bc;
+}

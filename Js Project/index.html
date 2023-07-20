@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Financial Accounts</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<style>
+  .transaction-table {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 2rem;
+    margin-left: 7rem;
+  }
+
+  .transaction-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .transaction-table th,
+  .transaction-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .transaction-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+
+  .transaction-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  .transaction-table tbody tr:hover {
+    background-color: #e8e8e8;
+  }
+
+  .transaction-table tbody td.amount.income {
+    color: green;
+    font-weight: bold;
+  }
+
+  .transaction-table tbody td.amount.expense {
+    color: red;
+    font-weight: bold;
+  }
+
+
+  #transactionButton {
+    height: 3rem;
+    width: 120px;
+    background-color: #fff;
+    color: #007bff;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10rem;
+    margin-top: 2rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  #transactionButton:hover {
+    /* background-color: blue; */
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  #transactionButton:active {
+    background-color: #fff;
+    outline: none;
+  }
+
+  #total-amount-container {
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 1rem;
+    color: #007bff;
+  }
+
+  #total-amount {
+    margin-left: .5rem;
+    color: #007bff;
+  }
+
+  .dropdown-menu {
+    display: none;
+    /* Hide the dropdown menu by default */
+    position: absolute;
+    top: 30px;
+    /* Adjust the position according to your layout */
+    right: 10px;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    z-index: 1;
+  }
+</style>
+
+<body>
+  <h1 class="transaction">Add Transaction</h1>
+  <div class="container">
+    <div class="income-expense-btns">
+      <button class="income-btn" data-type="income"><i class="fas fa-cloud-upload-alt"></i> Income</button>
+      <button class="expense-btn" data-type="expense"><i class="fas fa-calendar-minus"></i> Expense</button>
+    </div>
+
+    <div class="input-field">
+      <input type="text" class="input-field" placeholder="Enter Amount">
+    </div>
+    <div class="dropdown">
+      <div class="dropdown-header">Paying from cash</div>
+      <div class="dropdown-content" id="account-dropdown">
+      </div>
+    </div>
+  </div>
+  <h1 class="Select_category">Select Category</h1>
+  <div class="category-container">
+    <ul id="categoriesList"></ul>
+    <button id="add-category-btn"><i class="fas fa-plus"></i>Add Category</button>
+  </div>
+  <div id="add-category-popup" class="popup-container" style="display: none;">
+    <form id="add-category-form">
+      <input type="text" id="category-input" placeholder="Enter category name" />
+      <button type="submit">Add</button>
+      <button type="button" class="close-btn">Close</button>
+    </form>
+  </div>
+
+  <button type="button" id="transactionButton">Add</button>
+  <div class="transaction-table">
+    <h1>Transaction History</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Account</th>
+          <th>Date</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody id="transaction-table-body">
+        <!-- Transaction data -->
+      </tbody>
+    </table>
+  </div>
+
+  <div class="right-div">
+    <div id="username"></div>
+    <div class="userIcon">
+      <i class="fas fa-user-circle fa-lg"></i>
+    </div>
+    <div class="dropdown-menu">
+      <ul>
+        <li id="logout">Logout</li>
+      </ul>
+    </div>
+    <h1 class="What">What You Have</h1>
+    <div id="total-amount-container">
+      PKR<span id="total-amount">0.00</span>
+    </div>
+
+    <div id="account-container">
+      <h2 id="username"></h2>
+      <table id="account-table">
+        <thead>
+          <tr>
+            <th>Account Name</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button id="create-account-btn">Create Account</button>
+    </div>
+
+    <div id="create-account-popup" class="popup-container" style="display: none;">
+      <form id="create-account-form">
+        <label for="account-name">Account Name:</label>
+        <input type="text" id="account-name" required>
+        <br>
+        <label for="account-amount">Account Value:</label>
+        <input type="number" id="account-amount" required>
+        <br>
+        <button type="submit">Create</button>
+      </form>
+      <button class="close-btn" onclick="closeCreateAccountPopup()">Close</button>
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-database.js"></script>
+
+  <script src="Firebase.config.js"></script>
+  <script src="index.js"></script>
+  <script src="List.js"></script>
+  <script src="transaction.js"></script>
+
+  <script>
+    var userIcon = document.querySelector('.fa-user-circle');
+    var dropdownMenu = document.querySelector('.dropdown-menu');
+    var logoutButton = document.getElementById('logout');
+
+    //  event listener to user icon
+    userIcon.addEventListener('click', function () {
+      dropdownMenu.style.display = 'block'; // Show the dropdown menu
+    });
+
+    //  event listener to logout button
+    logoutButton.addEventListener('click', function () {
+      //  current user from local storage
+      localStorage.removeItem('currentUser');
+
+      // Redirect to the sign-in page
+      window.location.href = 'SignIn.html';
+    });
+
+    //  event listener to the document
+    document.addEventListener('click', function (event) {
+      var targetElement = event.target;
+
+      // Check if the clicked element is inside the dropdown menu or the user icon
+      if (!dropdownMenu.contains(targetElement) && targetElement !== userIcon) {
+        dropdownMenu.style.display = 'none'; // Hide the dropdown menu
+      }
+    });
+  </script>
+</body>
+
+</html>
